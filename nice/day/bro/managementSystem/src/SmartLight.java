@@ -8,7 +8,7 @@ public class SmartLight extends IoTDevice{
 
     @Override
     public void performAction() {
-        if (isOn){
+        if (isOn == true){
             System.out.println("Умный свет включен");
         } else {
             System.out.println("Умный свет выключен");
