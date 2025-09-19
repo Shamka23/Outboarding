@@ -5,8 +5,8 @@ public class TestAutomationSystem {
         tests[1] = new PaymentTest();
         tests[2] = new ProductSearchTest();
 
-        for(TestScenario elements: tests){
-            elements.runTest();
+        for(TestScenario element: tests){
+            element.runTest();
         }
     }
 }
