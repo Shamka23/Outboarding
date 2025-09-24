@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Book {
     private final String title;
     private final String author;
@@ -9,9 +11,22 @@ public class Book {
         this.year = year;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+
     @Override
     public int hashCode() {
-        return
+        return Objects.hash(title, author, year);
     }
 
     @Override
