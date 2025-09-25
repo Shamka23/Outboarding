@@ -3,12 +3,12 @@ import java.util.Objects;
 public class Book {
     private final String title;
     private final String author;
-    private final int year;
+    private final Integer year;
 
-    public Book(String title, String author, int year) {
-        this.title = title;
-        this.author = author;
-        this.year = year;
+    public Book(String title, String author, Integer year) {
+        this.title = title != null ? title : "";
+        this.author = author  != null ? author : "";
+        this.year = year != null ? year : 0;
     }
 
     public String getTitle() {
