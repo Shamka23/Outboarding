@@ -8,12 +8,12 @@ public class Main {
     public static void main(String[] args) {
         Book book1 = new Book("Sueta", "Seutolog", 2000);
         addBook(new Book("Java", "Rupert Gnidovski", 2001), "Java Shelf");
-        addBook(new Book("Java", "Rupert Gnidovski", 2002), "Java Shelf");
+        addBook(new Book("Java", "Rupert Gnidovski", 2002), "Education Shelf");
         addBook(book1, "Education Shelf");
         System.out.println(map);
-        deleteBooks("Java","Rupert Gnidovski",0);
+        deleteBooks("Java", "Rupert Gnidovski", 0);
         System.out.println(map);
-
+        searchBook("", "", 2000);
     }
 
     static void addBook(Book book, String location) {
@@ -30,6 +30,7 @@ public class Main {
             }
         }
     }
+
     static void deleteBooks(String bookTitle, String authorName, Integer year) {
         Iterator<Map.Entry<Book, String>> iterator = map.entrySet().iterator();
         while (iterator.hasNext()) {
@@ -40,7 +41,7 @@ public class Main {
                 iterator.remove();
                 break;
             } else if (entry.getKey().getTitle().equals(bookTitle)
-                    && entry.getKey().getAuthor().equals(authorName)){
+                    && entry.getKey().getAuthor().equals(authorName)) {
                 iterator.remove();
                 break;
             } else if (entry.getKey().getTitle().equals(bookTitle)
@@ -48,13 +49,13 @@ public class Main {
                 iterator.remove();
                 break;
             } else if (entry.getKey().getAuthor().equals(authorName) &&
-            entry.getKey().getYear() == year) {
+                    entry.getKey().getYear() == year) {
                 iterator.remove();
                 break;
-            } else if (entry.getKey().getTitle().equals(bookTitle)){
+            } else if (entry.getKey().getTitle().equals(bookTitle)) {
                 iterator.remove();
                 break;
-            } else if (entry.getKey().getAuthor().equals(authorName)){
+            } else if (entry.getKey().getAuthor().equals(authorName)) {
                 iterator.remove();
                 break;
             } else if (entry.getKey().getYear() == year) {
@@ -63,5 +64,23 @@ public class Main {
             }
 
         }
+    }
+
+    static void searchBook(String bookTitle, String authorName, Integer year) {
+       boolean found = false;
+       for (Map.Entry<Book, String> entry : map.entrySet()) {
+           Book key = entry.getKey();
+           String location = entry.getValue();
+
+           if ((bookTitle != null && key.getTitle().equals(bookTitle)) ||
+               (authorName != null && key.getAuthor().equals(authorName)) ||
+               (year != null && key.getYear() == year)) {
+               System.out.println(location);
+               found = true;
+           }
+       }
+       if (!found) {
+           System.out.println("Book not found");
+       }
     }
 }
