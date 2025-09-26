@@ -3,96 +3,78 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class Main {
-    static Map<Book, String> map = new HashMap<>();
+    private static final Map<Book, String> bookLocation = new HashMap<>();
 
     public static void main(String[] args) {
-        Book book1 = new Book("Sueta", "Seutolog", 2000);
+        Book bookFirst = new Book("Sueta", "Seutolog", 2000);
         addBook(new Book("Java", "Rupert Gnidovski", 2001), "Java Shelf");
         addBook(new Book("Java", "Rupert Gnidovski", 2002), "Education Shelf");
-        addBook(book1, "Education Shelf");
-        System.out.println(map);
+
+        addBook(bookFirst, "Education Shelf");
+        System.out.println(bookLocation);
+
         deleteBooks("Java", "Rupert Gnidovski", 0);
-        System.out.println(map);
+        System.out.println(bookLocation);
+
         searchBook("", "", 2000);
         searchAllBooks();
     }
 
     static void addBook(Book book, String location) {
-        map.put(book, location != null ? location : "");
+        bookLocation.put(book, location != null ? location : "");
     }
 
-    static void deleteBook(String bookTitle) {
-        Iterator<Map.Entry<Book, String>> iterator = map.entrySet().iterator();
+    static void deleteBookByTitle(String Title) {
+        Iterator<Map.Entry<Book, String>> iterator = bookLocation.entrySet().iterator();
         while (iterator.hasNext()) {
             Map.Entry<Book, String> entry = iterator.next();
-            if (entry.getKey().getTitle().equals(bookTitle)) {
+            if (entry.getKey().getTitle().equals(Title)) {
                 iterator.remove();
                 break;
             }
         }
     }
 
-    static void deleteBooks(String bookTitle, String authorName, Integer year) {
-        Iterator<Map.Entry<Book, String>> iterator = map.entrySet().iterator();
+    static void deleteBooks(String Title, String authorName, Integer year) {
+        Iterator<Map.Entry<Book, String>> iterator = bookLocation.entrySet().iterator();
         while (iterator.hasNext()) {
-            Map.Entry<Book, String> entry = iterator.next();
-            if (entry.getKey().getTitle().equals(bookTitle)
-                    && entry.getKey().getAuthor().equals(authorName)
-                    && entry.getKey().getYear() == year) {
-                iterator.remove();
-                break;
-            } else if (entry.getKey().getTitle().equals(bookTitle)
-                    && entry.getKey().getAuthor().equals(authorName)) {
-                iterator.remove();
-                break;
-            } else if (entry.getKey().getTitle().equals(bookTitle)
-                    && entry.getKey().getYear() == year) {
-                iterator.remove();
-                break;
-            } else if (entry.getKey().getAuthor().equals(authorName) &&
-                    entry.getKey().getYear() == year) {
-                iterator.remove();
-                break;
-            } else if (entry.getKey().getTitle().equals(bookTitle)) {
-                iterator.remove();
-                break;
-            } else if (entry.getKey().getAuthor().equals(authorName)) {
-                iterator.remove();
-                break;
-            } else if (entry.getKey().getYear() == year) {
-                iterator.remove();
-                break;
-            }
+           Book book = iterator.next().getKey();
+
+           boolean match =
+                   (Title != null && book.getTitle().equals(Title)) ||
+                   (authorName != null && book.getAuthor().equals(authorName)) ||
+                   (year != null && book.getYear() == year);
+
+           if (match) {
+               iterator.remove();
+           }
 
         }
     }
 
     static void searchBook(String bookTitle, String authorName, Integer year) {
-       boolean found = false;
-       for (Map.Entry<Book, String> entry : map.entrySet()) {
-           Book key = entry.getKey();
-           String location = entry.getValue();
+        for (Map.Entry<Book, String> entry : bookLocation.entrySet()) {
+            Book key = entry.getKey();
+            String location = entry.getValue();
 
-           if ((bookTitle != null && key.getTitle().equals(bookTitle)) ||
-               (authorName != null && key.getAuthor().equals(authorName)) ||
-               (year != null && key.getYear() == year)) {
-               System.out.println(location);
-               found = true;
-           }
-       }
-       if (!found) {
-           System.out.println("Book not found");
-       }
+            if ((bookTitle != null && key.getTitle().equals(bookTitle)) ||
+                    (authorName != null && key.getAuthor().equals(authorName)) ||
+                    (year != null && key.getYear() == year)) {
+                System.out.println(location);
+            }
+        }
     }
 
+
+
     static void searchAllBooks() {
-        Iterator<Map.Entry<Book, String>> iterator = map.entrySet().iterator();
+        Iterator<Map.Entry<Book, String>> iterator = bookLocation.entrySet().iterator();
         while (iterator.hasNext()) {
             Map.Entry<Book, String> entry = iterator.next();
             System.out.println(entry.getKey().getTitle() + " " +
-                               entry.getKey().getAuthor() + " " +
-                               entry.getKey().getYear() + " " +
-                               entry.getValue());
+                    entry.getKey().getAuthor() + " " +
+                    entry.getKey().getYear() + " " +
+                    entry.getValue());
         }
     }
 }
