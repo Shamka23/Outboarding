@@ -14,6 +14,7 @@ public class Main {
         deleteBooks("Java", "Rupert Gnidovski", 0);
         System.out.println(map);
         searchBook("", "", 2000);
+        searchAllBooks();
     }
 
     static void addBook(Book book, String location) {
@@ -82,5 +83,16 @@ public class Main {
        if (!found) {
            System.out.println("Book not found");
        }
+    }
+
+    static void searchAllBooks() {
+        Iterator<Map.Entry<Book, String>> iterator = map.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<Book, String> entry = iterator.next();
+            System.out.println(entry.getKey().getTitle() + " " +
+                               entry.getKey().getAuthor() + " " +
+                               entry.getKey().getYear() + " " +
+                               entry.getValue());
+        }
     }
 }
