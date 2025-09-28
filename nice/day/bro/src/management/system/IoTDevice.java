@@ -1,3 +1,5 @@
+package management.system;
+
 public class IoTDevice {
     private int id;
     private String name;

@@ -1,3 +1,5 @@
+package management.system;
+
 public class SmartLight extends IoTDevice{
     private boolean isOn;
 

@@ -1,3 +1,5 @@
+package arrays;
+
 public class Arrays {
     public static void main(String[] args) {
         User[] users = new User[10];

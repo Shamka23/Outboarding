@@ -1,3 +1,5 @@
+package network.traffic.analyzer;
+
 public class TrafficAnalyzer {
     public static void main(String[] args) {
         int[] trafficArray =  {2, 71, 324, 88472, 421};

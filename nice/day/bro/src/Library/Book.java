@@ -1,3 +1,7 @@
+package Library;
+
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Objects;
 
 public class Book {
@@ -6,9 +10,23 @@ public class Book {
     private final Integer year;
 
     public Book(String title, String author, Integer year) {
-        this.title = title != null ? title : "";
-        this.author = author  != null ? author : "";
-        this.year = year != null ? year : 0;
+        this.title = validate(title);
+        this.author = validate(author);
+        this.year = validate(year);
+    }
+
+    private String validate(String string) {
+        if (string != null && !string.isEmpty()) {
+            return string;
+        }
+        return "";
+    }
+
+    private Integer validate(Integer integer) {
+        if (integer != null && integer > 0) {
+            return integer;
+        }
+        return 0;
     }
 
     @Override
@@ -18,6 +36,10 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", year=" + year +
                 '}';
+    }
+
+    public String toString(Map<Book, String> bookLocation) {
+
     }
 
     public String getTitle() {

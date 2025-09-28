@@ -1,3 +1,5 @@
+package system.auto;
+
 public class PaymentTest implements TestScenario {
     @Override
     public void runTest() {

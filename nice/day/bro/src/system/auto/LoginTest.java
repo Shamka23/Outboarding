@@ -1,3 +1,5 @@
+package system.auto;
+
 public class LoginTest implements TestScenario{
     @Override
     public void runTest() {

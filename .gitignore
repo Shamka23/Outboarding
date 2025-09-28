@@ -2,8 +2,8 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-/Onboarding.iml
-.idea
+Onboarding.iml
+.idea/
 
 ### Eclipse ###
 .apt_generated

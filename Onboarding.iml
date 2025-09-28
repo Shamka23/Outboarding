@@ -9,6 +9,10 @@
       <sourceFolder url="file://$MODULE_DIR$/nice/day/bro/interfacesInSystemAuto/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/nice/day/bro/managementSystem/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/nice/day/bro/Library/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/nice/day/bro/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/codeStyles" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/dictionaries" />
+      <excludeFolder url="file://$MODULE_DIR$/nice/day/bro/src/interface/system/auto" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

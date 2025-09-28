@@ -1,3 +1,5 @@
+package management.system;
+
 public class SmartThermostat extends IoTDevice{
     private double temperature;
 

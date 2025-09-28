@@ -1,3 +1,5 @@
+package system.auto;
+
 public class TestAutomationSystem {
     public static void main(String[] args) {
         TestScenario[] tests = new TestScenario[3];
