@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/nice/day/bro/networkTrafficAnalyses/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/nice/day/bro/managementSystem/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/nice/day/bro/Library/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
