@@ -15,11 +15,13 @@ public class Main {
         addBook(bookFirst, "Education Shelf");
         System.out.println(bookLocation);
 
-        deleteBooks("Java", "Rupert Gnidovski", 0);
-        System.out.println(bookLocation);
+//        deleteBooks("Java", "Rupert Gnidovski", 0);
+//        System.out.println(bookLocation);
 
         searchBook("", "", 2000);
-        searchAllBooks();
+        searchAllBooks(bookLocation);
+
+        System.out.println();
     }
 
     static void addBook(Book book, String location) {
@@ -69,7 +71,8 @@ public class Main {
 
 
 
-    static void searchAllBooks() {
+    static void searchAllBooks(Map<Book, String> bookLocation) {
+        System.out.println(Book.toString(bookLocation));
         Iterator<Map.Entry<Book, String>> iterator = bookLocation.entrySet().iterator();
         while (iterator.hasNext()) {
             Map.Entry<Book, String> entry = iterator.next();

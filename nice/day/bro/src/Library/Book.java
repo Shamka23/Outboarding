@@ -1,6 +1,7 @@
 package Library;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -38,8 +39,18 @@ public class Book {
                 '}';
     }
 
-    public String toString(Map<Book, String> bookLocation) {
+    public static String toString(Map<Book, String> map) {
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<Book, String> entry : map.entrySet()) {
+            Book book = entry.getKey();
+            String location = entry.getValue();
 
+            sb.append(book.toString())
+                    .append(" Локация - ")
+                    .append(location)
+                    .append("\n");
+        }
+        return sb.toString();
     }
 
     public String getTitle() {
@@ -65,8 +76,10 @@ public class Book {
         if (this == obj) {
             return true;
         }
+        if (!(obj instanceof Book)) {
+            return false;
+        }
         Book book = (Book) obj;
-
         return obj != null &&
                 this.title.equals(book.title) &&
                 this.author.equals(book.author) &&
